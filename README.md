@@ -4,9 +4,9 @@ A tutorial on how to make a Gitter Bot
 
 # Prerequisites
 
-* You are going to need a GitHub account that you want to post to your Gitter Rooms.  While you could use your own account, this may be confusing to your users, so a new, separate account may be better.
-  * Once you have created your new GitHub account, log into the [Developer Gitter](https://developer.gitter.im/docs/welcome) page, and then access this [page](https://developer.gitter.im/apps) and take a note of the accounts Personal Access Token
-* You are going to need somewhere to host your hubot instance.  For example, you can host on [Heroku](https://dashboard.heroku.com/)
+* **A GitHub account** to post to your Gitter rooms. While you could use your own account, this may be confusing to your users, so a new, separate account may be better
+* Once you have created your new GitHub account, log into the [Developer Gitter](https://developer.gitter.im/docs/welcome) page, and then access this [page](https://developer.gitter.im/apps) and take a note of the accounts **Personal Access Token**
+* You are going to need a **cloud infrastructure** somewhere to host your hubot instance. For example, you can host on [Heroku](https://dashboard.heroku.com/) or on [Azure](https://azure.microsoft.com/), or on your own
 
 # Setup
 
