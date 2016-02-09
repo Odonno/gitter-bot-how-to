@@ -8,15 +8,21 @@ A tutorial on how to make a Gitter Bot
 * Once you have created your new GitHub account, log into the [Developer Gitter](https://developer.gitter.im/docs/welcome) page, and then access this [page](https://developer.gitter.im/apps) and take a note of the accounts **Personal Access Token**
 * You are going to need a **cloud infrastructure** somewhere to host your hubot instance. For example, you can host on [Heroku](https://dashboard.heroku.com/) or on [Azure](https://azure.microsoft.com/), or on your own
 
-# Setup
+# First steps
 
 To get hubot, these are the steps that had to be followed.
 
-**NOTE:** Although there are two hubot adapter's for Gitter, we found that only one of them works.  Namely, this [one](https://github.com/huafu/hubot-gitter2).  The other [one](https://github.com/kcjpop/hubot-gitter) seems older, and has been replaced by the one that we ended up using.
+**NOTE:** Although there are two hubot adapter's for Gitter, we found that only one of them works. Namely, this [one](https://github.com/huafu/hubot-gitter2). The other [one](https://github.com/kcjpop/hubot-gitter) seems older, and has been replaced by the one that we ended up using.
 
-* Login into [Gitter](http://gitter.im) with the GitHub account that you want to run as your bot
-* Join the room that you want the bot to be activated on
-* Install node.js (which includes npm)
+1. Create your GitHub account if you don't already have one, the account that will act as your bot
+2. Login into [Gitter](http://gitter.im) with the GitHub account
+3. Join the room that you want the bot to be activated on
+4. Install node.js (which includes npm)
+
+# Publish your bot
+
+## Host on Heroku
+
 * Install Heroku Toolkit
 * `mkdir C:\heroku\<yourbotname>`
 * `cd .\<yourbotname>`
@@ -40,3 +46,7 @@ To get hubot, these are the steps that had to be followed.
 If all of the above has worked, go to your Gitter Chat Room, and try issuing a hubot command like `hubot ping` and hopefully you will see the following:
 
 ![image](https://cloud.githubusercontent.com/assets/1271146/5890979/96fa7066-a471-11e4-9042-b1db63b4e984.png)
+
+## Host on Azure
+
+Work in progress...
