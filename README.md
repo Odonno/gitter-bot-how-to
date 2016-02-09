@@ -19,7 +19,23 @@ To get hubot, these are the steps that had to be followed.
 3. Join the room that you want the bot to be activated on
 4. Install node.js (which includes npm)
 
-# Publish your bot
+# Configure your bot
+
+You can follow the installation process from hubot-gitter2 [here](https://github.com/huafu/hubot-gitter2#installation).
+
+Or you can follow these steps :
+
+1. `npm install -g hubot coffee-script`
+2. `npm install -g yo generator-hubot`
+3. `mkdir -p <yourbotname>` where `<yourbotname>` is the name of your bot
+4. `yo hubot` (when prompted, enter `gitter2` as adapter name, and `<yourbotname>` as name
+5. `npm install --save hubot-gitter2`
+
+You can then test your bot with the following command line where `<your token>` is the token provided by Gitter.
+
+`HUBOT_GITTER2_TOKEN=<your token> ./bin/hubot -a gitter2`
+
+# Publish
 
 ## Host on Heroku
 
