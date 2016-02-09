@@ -1,6 +1,5 @@
-# gitter-bot-how-to
+# gitter-bot-how-to [![Join the chat at https://gitter.im/Odonno/gitter-bot-how-to](https://badges.gitter.im/Odonno/gitter-bot-how-to.svg)](https://gitter.im/Odonno/gitter-bot-how-to?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-[![Join the chat at https://gitter.im/Odonno/gitter-bot-how-to](https://badges.gitter.im/Odonno/gitter-bot-how-to.svg)](https://gitter.im/Odonno/gitter-bot-how-to?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 A tutorial on how to make a Gitter Bot
 
 # Prerequisites
