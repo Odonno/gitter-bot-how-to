@@ -44,7 +44,7 @@ You can then test your bot with the following command line where `<your token>` 
 ## Host on Heroku
 
 ### Prerequisites
-* Install Heroku Toolkit
+* Install [Heroku Toolbelt](https://toolbelt.heroku.com/)
 
 ### Steps
 
