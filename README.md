@@ -24,14 +24,13 @@ You can follow the installation process from hubot-gitter2 [here](https://github
 
 Or you can follow these steps :
 
-1. `npm install -g hubot coffee-script`
-1. `npm install -g yo generator-hubot`
-1. `mkdir -p <yourbotname>` where `<yourbotname>` is the name of your bot
-1. `yo hubot` (when prompted, enter `gitter2` as adapter name, and `<yourbotname>` as name
-1. `npm install --save hubot-gitter2`
-1. `git init`
-1. `git add .`
-1. `git commit -m "Initial commit"`
+1. `npm install -g hubot coffee-script yo generator-hubot`
+2. `mkdir -p <yourbotname>` where `<yourbotname>` is the name of your bot
+3. `yo hubot` (when prompted, enter `gitter2` as adapter name, and `<yourbotname>` as name
+4. `npm install --save hubot-gitter2`
+5. `git init`
+6. `git add .`
+7. `git commit -m "Initial commit"`
 
 **NOTE:** Ideally, you would then want to push the repository that you just created to "somewhere" for storage, perhaps GitHub or BitBucket.
 
@@ -44,18 +43,19 @@ You can then test your bot with the following command line where `<your token>` 
 ## Host on Heroku
 
 ### Prerequisites
+
 * Install [Heroku Toolbelt](https://toolbelt.heroku.com/)
 
 ### Steps
 
 1. Navigate to the directory where you created your bot above
-1. `heroku login`
-1. `heroku create`
-1. `heroku config:set HUBOT_GITTER2_TOKEN=****` (here the token is the Personal Access Token for Github Account that will be running as the bot.
-1. `heroku config:set HEROKU_URL=https://<URL>` (this is to keep the heroku application alive.  The URL is generated from the `heroku create` command above
-1. `heroku config:set HUBOT_ADAPTER="gitter2"` (this ensures we use the gitter2 adapter)
-1. `git push heroku master`
-1. `heroku logs` (if all goes well here, you should see something simalar to the following)
+2. `heroku login`
+3. `heroku create`
+4. `heroku config:set HUBOT_GITTER2_TOKEN=****` (here the token is the Personal Access Token for Github Account that will be running as the bot.
+5. `heroku config:set HEROKU_URL=https://<URL>` (this is to keep the heroku application alive.  The URL is generated from the `heroku create` command above
+6. `heroku config:set HUBOT_ADAPTER="gitter2"` (this ensures we use the gitter2 adapter)
+7. `git push heroku master`
+8. `heroku logs` (if all goes well here, you should see something simalar to the following)
 
 ![image](https://cloud.githubusercontent.com/assets/1271146/5890975/1b0b13d4-a471-11e4-97db-9be2b5fbae77.png)
 
