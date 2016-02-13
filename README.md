@@ -63,4 +63,22 @@ If all of the above has worked, go to your Gitter Chat Room, and try issuing a h
 
 ## Host on Azure
 
-Work in progress...
+### Prerequisites
+
+You'll need an Azure account to continue.
+
+### Steps
+
+1. Login into [Azure dashboard](https://portal.azure.com/)
+2. Create a new **App Services** with the name, for example `<yourbotname>`
+3. Under the **Publishing** settings, click on **Continuous deployment** section and then choose the source of your code among these options :
+    * Visual Studio Team Services
+    * OneDrive
+    * Local Git Repository
+    * GitHub
+    * Bitbucket
+    * Dropbox
+    * An external repository
+4. Under the **General** settings, click on **Application settings** and fill with key/value pairs
+    * add gitter token (key: `HUBOT_GITTER2_TOKEN`, value: `<your token>`)
+    * add hubot adapter (key: `HUBOT_ADAPTER`, value: `gitter2`)
