@@ -67,6 +67,22 @@ If all of the above has worked, go to your Gitter Chat Room, and try issuing a h
 
 You'll need an Azure account to continue.
 
+### Running Hubot in an Azure website ?
+ 
+1. `npm install -g azure-cli`
+2. `azure site deploymentscript --node`
+3. Edit `external-scripts.json` file and remove these lines
+    * `"hubot-heroku-keepalive",`
+    * `"hubot-redis-brain,`
+4. Create a new file `server.js` in the root directory that contains these 2 lines
+    * `require('coffee-script/register');` <br />
+      `module.exports = require('bin/hubot.coffee');`
+5. Open `deploy.cmd` and add a new line under `Deployment` section (after the 3rd step)
+    * `:: 4. Create Hubot file with a coffee extension` <br />
+      `copy /Y "%DEPLOYMENT_TARGET%\bin\hubot" "%DEPLOYMENT_TARGET%\bin\hubot.coffee"`
+6. Commit this change on your repo (`git commit -m "Add Azure deployment configuration"`)
+7. Publish your code to your favorite source control (see below in Steps.3)
+
 ### Steps
 
 1. Login into [Azure dashboard](https://portal.azure.com/)
