@@ -28,9 +28,7 @@ Or you can follow these steps :
 2. `mkdir -p <yourbotname>` where `<yourbotname>` is the name of your bot
 3. `yo hubot` (when prompted, enter `gitter2` as adapter name, and `<yourbotname>` as name
 4. `npm install --save hubot-gitter2`
-5. `git init`
-6. `git add .`
-7. `git commit -m "Initial commit"`
+5. Create git repository (`git init`, `git add .`,  `git commit -m "Initial commit"`)
 
 **NOTE:** Ideally, you would then want to push the repository that you just created to "somewhere" for storage, perhaps GitHub or BitBucket.
 
