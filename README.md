@@ -67,6 +67,10 @@ If all of the above has worked, go to your Gitter Chat Room, and try issuing a h
 
 You'll need an Azure account to continue.
 
+**HOTFIX:** Because there was fix on `develop` branch to make `hubot-gitter2` works on Windows, you should update your `package.json` to get the last change. Change this line :
+
+`"hubot-gitter2": "git://github.com/huafu/hubot-gitter2.git#develop",`
+
 ### Running Hubot in an Azure website ?
  
 1. `npm install -g azure-cli`
