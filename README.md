@@ -63,4 +63,47 @@ If all of the above has worked, go to your Gitter Chat Room, and try issuing a h
 
 ## Host on Azure
 
-Work in progress...
+### Prerequisites
+
+You'll need an Azure account to continue.
+
+**HOTFIX:** Because there was fix on `develop` branch to make `hubot-gitter2` works on Windows, you should update your `package.json` to get the last change. Change this line :
+
+`"hubot-gitter2": "git://github.com/huafu/hubot-gitter2.git#develop",`
+
+### Running Hubot in an Azure website ?
+ 
+1. `npm install -g azure-cli`
+2. `azure site deploymentscript --node`
+3. Edit `external-scripts.json` file and remove these lines
+    * `"hubot-heroku-keepalive",`
+    * `"hubot-redis-brain,`
+4. Create a new file `server.js` in the root directory that contains these 2 lines
+    * `require('coffee-script/register');` <br />
+      `module.exports = require('bin/hubot.coffee');`
+5. `npm install coffee-script --save`
+6. Open `deploy.cmd` and add a new line under `Deployment` section (after the 3rd step)
+    * `:: 4. Create Hubot file with a coffee extension` <br />
+      `copy /Y "%DEPLOYMENT_TARGET%\bin\hubot" "%DEPLOYMENT_TARGET%\bin\hubot.coffee"`
+7. Commit this change on your repo (`git commit -m "Add Azure deployment configuration"`)
+8. Publish your code to your favorite source control (see below in Steps.3)
+
+### Steps
+
+1. Login into [Azure dashboard](https://portal.azure.com/)
+2. Create a new **App Services** with the name, for example `<yourbotname>`
+3. Under the **Publishing** settings, click on **Continuous deployment** section and then choose the source of your code among these options :
+    * Visual Studio Team Services
+    * OneDrive
+    * Local Git Repository
+    * GitHub
+    * Bitbucket
+    * Dropbox
+    * An external repository
+4. Under the **General** settings, click on **Application settings** and fill with key/value pairs
+    * add gitter token (key: `HUBOT_GITTER2_TOKEN`, value: `<your token>`)
+    * add hubot adapter (key: `HUBOT_ADAPTER`, value: `gitter2`)
+
+# Credits
+
+* Thanks to [CultureOps](https://cultureops.wordpress.com/) for his blog post [*Running Hubot in an Azure website ?*](https://cultureops.wordpress.com/2015/06/03/running-hubot-in-an-azure-website/)
