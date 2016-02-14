@@ -16,7 +16,7 @@ To get hubot, these are the steps that should be followed.
 **NOTE:** Although there are two hubot adapter's for Gitter, we found that only one of them works reliably. Namely, this [one](https://github.com/huafu/hubot-gitter2). The other [one](https://github.com/kcjpop/hubot-gitter) seems older, and has been replaced by the one that we ended up using.
 
 1. Login into [Gitter](http://gitter.im) with the GitHub account that you are going to use as your bot
-1. Join the room(s) that you want the bot to be activated on
+2. Join the room(s) that you want the bot to be activated on
 
 # Configure your bot
 
@@ -42,9 +42,12 @@ You can then test your bot with the following command line where `<your token>` 
 
 ### Prerequisites
 
+* You will need a Heroku account in order to continue
 * Install [Heroku Toolbelt](https://toolbelt.heroku.com/)
 
-### Steps
+### Deployment Steps
+
+**NOTE:** The steps regarding Keep alive, sleep and wake up are ONLY required if you are running on a Hobby Heroku instance.  If you are using a paid for plan, then you can ignore these steps.  When running on a Hobby Plan, the Heroku Dyno is only allowed to run for 18 hours a day.  This keepalive routine allows the bot to continue running without any interaction, and still remain within the rules of the free account.
 
 1. Navigate to the directory where you created your bot above
 2. `heroku login`
@@ -52,8 +55,19 @@ You can then test your bot with the following command line where `<your token>` 
 4. `heroku config:set HUBOT_GITTER2_TOKEN=****` (here the token is the Personal Access Token for Github Account that will be running as the bot.
 5. `heroku config:set HEROKU_URL=https://<URL>` (this is to keep the heroku application alive.  The URL is generated from the `heroku create` command above
 6. `heroku config:set HUBOT_ADAPTER="gitter2"` (this ensures we use the gitter2 adapter)
-7. `git push heroku master`
-8. `heroku logs` (if all goes well here, you should see something simalar to the following)
+7. `heroku config:set HUBOT_HEROKU_KEEPALIVE_INTERVAL=5` (this is the interval that the heroku instance will be polled to keep it active.  Value is in minutes)
+8. `heroku config:set HUBOT_HEROKU_KEEPALIVE_URL=https://<URL>/` (this is URL that will be pinged each keep alive attempt.  Should be the same as the URL above.  Notice the trailing slash, which is very important!)
+9. `heroku config:set HUBOT_HEROKU_SLEEP_TIME=22:00` (this is UTC time at which the hubot instance will go to sleep.  22:00 is the default, but you can change this to whatever suits you.)
+10. `heroku config:set HUBOT_HEROKU_WAKEUP_TIME=06:00` (this it the UTC time at which the hubot instance will wake up.  06:00 is the default, but you can change this to whatever suits you.)
+11. `heroku addons:create scheduler:standard` (this adds the free heroku scheduler to your account)
+12. Sign into your heroku account, and click on the newly created scheduler
+![image](https://cloud.githubusercontent.com/assets/1271146/13035913/173d6322-d352-11e5-931f-4dbf73f45e4b.png)
+
+13. Edit the settings of the job to look like the following:
+![image](https://cloud.githubusercontent.com/assets/1271146/13035919/4791916a-d352-11e5-8f0c-ca9561f540ed.png)
+**NOTE:** The next due time you be set as the same as the `HUBOT_HEROKU_WAKEUP_TIME` above.
+14. `git push heroku master`
+15. `heroku logs` (if all goes well here, you should see something simalar to the following)
 
 ![image](https://cloud.githubusercontent.com/assets/1271146/5890975/1b0b13d4-a471-11e4-97db-9be2b5fbae77.png)
 
@@ -65,30 +79,32 @@ If all of the above has worked, go to your Gitter Chat Room, and try issuing a h
 
 ### Prerequisites
 
-You'll need an Azure account to continue.
+* You will need an Azure account in order to continue.
+* Install Azure Command Line Interface - `npm install -g azure-cli`
 
-**HOTFIX:** Because there was fix on `develop` branch to make `hubot-gitter2` works on Windows, you should update your `package.json` to get the last change. Change this line :
+### Configuration Steps
+
+**HOTFIX:** Due to the fact that there has been a fix on the `develop` branch of the `hubot-gitter2` repository to make it work on Azure, you will need to make the following adjustment to the `package.json` file. Change this line :
 
 `"hubot-gitter2": "git://github.com/huafu/hubot-gitter2.git#develop",`
 
-### Running Hubot in an Azure website ?
+Once a new release of the `hubot-gitter2` is available, you will not need to do this change.  You can subscribe to [this issue](https://github.com/huafu/hubot-gitter2/issues/18) to know when a new release is available.
  
-1. `npm install -g azure-cli`
-2. `azure site deploymentscript --node`
-3. Edit `external-scripts.json` file and remove these lines
+1. `azure site deploymentscript --node`
+2. Edit `external-scripts.json` file and remove these lines
     * `"hubot-heroku-keepalive",`
     * `"hubot-redis-brain,`
-4. Create a new file `server.js` in the root directory that contains these 2 lines
+3. Create a new file `server.js` in the root directory that contains these 2 lines
     * `require('coffee-script/register');` <br />
       `module.exports = require('bin/hubot.coffee');`
-5. `npm install coffee-script --save`
-6. Open `deploy.cmd` and add a new line under `Deployment` section (after the 3rd step)
+4. `npm install coffee-script --save`
+5. Open `deploy.cmd` and add a new line under `Deployment` section (after the 3rd step)
     * `:: 4. Create Hubot file with a coffee extension` <br />
       `copy /Y "%DEPLOYMENT_TARGET%\bin\hubot" "%DEPLOYMENT_TARGET%\bin\hubot.coffee"`
-7. Commit this change on your repo (`git commit -m "Add Azure deployment configuration"`)
-8. Publish your code to your favorite source control (see below in Steps.3)
+6. Commit this change on your repo (`git commit -m "Add Azure deployment configuration"`)
+7. Publish your code to your favorite source control (see below in Steps.3)
 
-### Steps
+### Deployment Steps
 
 1. Login into [Azure dashboard](https://portal.azure.com/)
 2. Create a new **App Services** with the name, for example `<yourbotname>`
