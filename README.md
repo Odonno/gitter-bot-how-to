@@ -77,11 +77,12 @@ You'll need an Azure account to continue.
 4. Create a new file `server.js` in the root directory that contains these 2 lines
     * `require('coffee-script/register');` <br />
       `module.exports = require('bin/hubot.coffee');`
-5. Open `deploy.cmd` and add a new line under `Deployment` section (after the 3rd step)
+5. `npm install coffee-script --save`
+6. Open `deploy.cmd` and add a new line under `Deployment` section (after the 3rd step)
     * `:: 4. Create Hubot file with a coffee extension` <br />
       `copy /Y "%DEPLOYMENT_TARGET%\bin\hubot" "%DEPLOYMENT_TARGET%\bin\hubot.coffee"`
-6. Commit this change on your repo (`git commit -m "Add Azure deployment configuration"`)
-7. Publish your code to your favorite source control (see below in Steps.3)
+7. Commit this change on your repo (`git commit -m "Add Azure deployment configuration"`)
+8. Publish your code to your favorite source control (see below in Steps.3)
 
 ### Steps
 
