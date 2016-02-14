@@ -103,3 +103,7 @@ You'll need an Azure account to continue.
 4. Under the **General** settings, click on **Application settings** and fill with key/value pairs
     * add gitter token (key: `HUBOT_GITTER2_TOKEN`, value: `<your token>`)
     * add hubot adapter (key: `HUBOT_ADAPTER`, value: `gitter2`)
+
+# Credits
+
+* Thanks to [CultureOps](https://cultureops.wordpress.com/) for his blog post [*Running Hubot in an Azure website ?*](https://cultureops.wordpress.com/2015/06/03/running-hubot-in-an-azure-website/)
