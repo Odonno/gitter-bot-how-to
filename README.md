@@ -71,10 +71,6 @@ You can then test your bot with the following command line where `<your token>` 
 
 ![image](https://cloud.githubusercontent.com/assets/1271146/5890975/1b0b13d4-a471-11e4-97db-9be2b5fbae77.png)
 
-If all of the above has worked, go to your Gitter Chat Room, and try issuing a hubot command like `hubot ping` and hopefully you will see the following:
-
-![image](https://cloud.githubusercontent.com/assets/1271146/5890979/96fa7066-a471-11e4-9042-b1db63b4e984.png)
-
 ## Host on Azure
 
 ### Prerequisites
@@ -119,6 +115,12 @@ Once a new release of the `hubot-gitter2` is available, you will not need to do 
 4. Under the **General** settings, click on **Application settings** and fill with key/value pairs
     * add gitter token (key: `HUBOT_GITTER2_TOKEN`, value: `<your token>`)
     * add hubot adapter (key: `HUBOT_ADAPTER`, value: `gitter2`)
+
+# Ready to use
+
+If all of the above has worked, go to your Gitter Chat Room, and try issuing a hubot command like `hubot ping` and hopefully you will see the following:
+
+![image](https://cloud.githubusercontent.com/assets/1271146/5890979/96fa7066-a471-11e4-9042-b1db63b4e984.png)
 
 # Credits
 
