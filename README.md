@@ -2,6 +2,23 @@
 
 A tutorial on how to make a Gitter Bot
 
+# Summary
+
+* [Prerequisites](#prerequisites)
+* [First steps](#first-steps)
+* [Configure your bot](#configure-your-bot)
+* [Publish](#publish)
+    * [Host on Heroku](#host-on-heroku)
+        * [Prerequisites](#prerequisites-1)
+        * [Deployment Steps](#deployment-steps)
+    * [Host on Azure](#host-on-azure)
+        * [Prerequisites](#prerequisites-2)
+        * [Configuration Steps](#configuration-steps)
+        * [Deployment Steps](#deployment-steps-1)
+        * [Keep alive](#keep-alive)
+* [Ready to use](#ready-to-use)
+* [Credits](#credits)
+
 # Prerequisites
 
 * **A GitHub account** to post to your Gitter rooms. While you could use your own account, this may be confusing to your users, so a new, separate account may be better
