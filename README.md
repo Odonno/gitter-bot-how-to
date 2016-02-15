@@ -132,6 +132,7 @@ Once a new release of the `hubot-gitter2` is available, you will not need to do 
 4. Under the **General** settings, click on **Application settings** and fill with key/value pairs
     * add gitter token (key: `HUBOT_GITTER2_TOKEN`, value: `<your token>`)
     * add hubot adapter (key: `HUBOT_ADAPTER`, value: `gitter2`)
+    * add hubot name (key: `HUBOT_NAME`, value: `<yourbotname>`)
 
 ### Keep alive
 
