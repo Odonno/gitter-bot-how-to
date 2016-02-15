@@ -143,7 +143,7 @@ If you use the free version of Azure websites, you could be suprised that your b
 3. Configure your monitor like this
     * Monitor type : `Ping`
     * Friendly Name : `<yourbotname>`
-    * IP (or host) : `http://<yourbotname>.azurewebsites.net/hubot/help`
+    * IP (or host) : `http://<yourbotname>.azurewebsites.net/<yourbotname>/help`
     * Monitoring interval : every 15 minutes
 
 # Ready to use
