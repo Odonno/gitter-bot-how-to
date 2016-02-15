@@ -116,6 +116,18 @@ Once a new release of the `hubot-gitter2` is available, you will not need to do 
     * add gitter token (key: `HUBOT_GITTER2_TOKEN`, value: `<your token>`)
     * add hubot adapter (key: `HUBOT_ADAPTER`, value: `gitter2`)
 
+### Keep alive
+
+If you use the free version of Azure websites, you could be suprised that your bot stop to after around 20 minutes. That's because the application pool sleep after a period of inactivity. To keep your service awake, you can use the service [uptimerobot.com](http://uptimerobot.com/).
+
+1. Sign-up or login to the service
+2. Add new monitor
+3. Configure your monitor like this
+    * Monitor type : `Ping`
+    * Friendly Name : `<yourbotname>`
+    * IP (or host) : `http://<yourbotname>.azurewebsites.net/hubot/help`
+    * Monitoring interval : every 15 minutes
+
 # Ready to use
 
 If all of the above has worked, go to your Gitter Chat Room, and try issuing a hubot command like `hubot ping` and hopefully you will see the following:
